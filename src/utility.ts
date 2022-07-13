@@ -15,6 +15,18 @@ type OptionalOurUser = Partial<OurUser>;
 
 type ReqUser = Required<OurUser>;
 
+// sukurti nauja tipa pagal OurUser kuriame butu tik id name ir usename
+type OnlyUser = Pick<ReqUser, 'id' | 'name' | 'username'>;
+
+const onluUser: OnlyUser = {
+  id: 457,
+  name: 'Jill',
+  username: 'Jilltional',
+};
+
+// sukurti nauja tipa pagal OurUser kuriame nera id name ir usename
+type NoIdNameUsername = Omit<ReqUser, 'id' | 'name' | 'username'>;
+
 const opUser: OptionalOurUser = {
   name: 'Mike',
 };
